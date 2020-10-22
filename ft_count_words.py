@@ -10,8 +10,8 @@ def ft_count_words(str):
     d = ft_len(str)
     i = 0
     while i < d:
-        if str[i] == ' ':
+        if str[i] == ' ' and str[i - 1] != ' ':
             k = k + 1
         i = i + 1
-    k = k + 1
+    k = k
     return k

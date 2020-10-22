@@ -18,6 +18,3 @@ def ft_division_str(str):
         d = d // 2 + 1
         s = str[d:z] + str[i:d]
         return s
-
-
-
