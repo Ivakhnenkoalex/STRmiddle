@@ -1,43 +1,48 @@
-def ft_len(str):
-    a = 0
-    for i in str:
-        a += 1
-    return (a)
+def ft_len(stsr):
+    l = 0
+    for i in stsr:
+        l += 1
+    return l
 
-def ft_reverse_between_char(char,str):
-    d = ft_len(str)
-    z = d
-    i = 0
-    k = 0
-    o = ''
-    while d > i:
-        if str[i] == char:
-            k = k + 1
-        i = i + 1
-    if k == 1:
-        return -1
-    if k == 0:
-        return -2
-    if k >= 2:
-        k2 = k
-        d = z
-        i = 0
-        while d > i:
+
+def ft_find_char(char, str):
+    count = 0
+    x = 0
+    r = 0
+    if char in str:
+        for i in range(ft_len(str)):
             if str[i] == char:
-                k1 = i
+                x = i
                 break
-            i = i + 1
-        i = 0
-        d = z
-        while d > i:
-            if str[i] == char:
-                k2 = i
-            i = i + 1
-        o += str[0::k1]
-        o += str[k2::z-1]
-        return o
-print(ft_reverse_between_char("d",'jdkhhdg'))
+        for i in str:
+            if i == char:
+                count += 1
+        if count == 1:
+            return x
+        else:
+            for i in range(ft_len(str)):
+                if str[i] == char:
+                    r = i
+            return x, r
+    else:
+        return False
 
 
+def ft_reverse_str(str):
+    a = ''
+    for i in range(-1, -ft_len(str) - 1, -1):
+        a += str[i]
+    return a
 
 
+def ft_reverse_between_char(char, stsr):
+    b = 0
+    for i in stsr:
+        if i == char:
+            b += 1
+    if b == 0:
+        return -2
+    elif b == 1:
+        return -1
+    a, c = ft_find_char(char, stsr)
+    return ft_reverse_str(stsr[a + 1:c])
