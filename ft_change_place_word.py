@@ -1,21 +1,21 @@
 def ft_len(str):
-    a = 0
+    l = 0
     for i in str:
-        a += 1
-    return (a)
+        l += 1
+    return (l)
 
 
 def ft_change_place_word(str):
-    d = ft_len(str)
-    s = ''
     i = 0
-    k = 0
-    z = d
-    while d > i:
-        if str[i] == ' ':
-            k = i + 1
-        i = i + 1
-    d = z
-    i = 0
-    s = str[k:d] + ' ' + str[i:k]
-    return s
+    s1 = ''
+    s2 = ''
+    s3 = ''
+    while str[i] != ' ':
+        s1 += str[i]
+        i += 1
+    i += 1
+    while i < ft_len(str):
+        s2 += str[i]
+        i += 1
+        s3 = s2 + ' ' + s1
+    return s3
